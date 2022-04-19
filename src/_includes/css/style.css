@@ -86,6 +86,9 @@ hr {
   font-family: BenchNine, system-ui, -apple-system, sans-serif;
   font-size: 2em;
 }
+.demo-list ul code {
+  font-size: .75em;
+}
 .demo-list li {
   margin-top: .5em;
   margin-bottom: .5em;
