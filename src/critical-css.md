@@ -65,4 +65,4 @@ Check the network tab on your browser’s devtools (make sure the Disable cache 
 
 Sets the cookie to track repeat views and the ?repeat-reset query param to delete the cookie.
 
-* [./netlify/edge-functions/repeat.js](https://github.com/11ty/demo-eleventy-edge/blob/main/netlify/edge-functions/repeat.js)
+<a href="https://github.com/11ty/demo-eleventy-edge/blob/main/netlify/edge-functions/repeat.js"><code>./netlify/edge-functions/repeat.js</code></a>
