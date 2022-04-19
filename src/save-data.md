@@ -9,11 +9,11 @@ Opt-out of web fonts when the [Save-Data header](https://web.dev/optimizing-cont
 	* `18.1 kB` for a full page load with web fonts (yes I’ve optimized this quite a bit already, but you can apply it to anything)
 ---
 
-### Source Code
-
 <a href="https://www.11ty.dev/docs/plugins/edge/">Learn more on 11ty.dev: Eleventy Edge Plugin documentation</a>
 
-#### 
+### Source Code
+
+#### Template
 
 {% highlight html %}
 <head>
@@ -37,3 +37,7 @@ Opt-out of web fonts when the [Save-Data header](https://web.dev/optimizing-cont
 {% endhighlight %}
 
 Check out the [`unicode-range` value on Uniclode](https://uniclode.zachleat.dev/_21x28x29x2D-3Ax3Fx41-5Ax5Fx61-7A/).
+
+#### Edge Function
+
+No extra edge functions necessary here! `eleventy.edge.saveData` is a bundled Eleventy Edge feature.

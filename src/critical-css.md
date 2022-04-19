@@ -30,9 +30,9 @@ Check the network tab on your browser’s devtools (make sure the Disable cache 
 
 ---
 
-### Source Code
-
 <p><a href="https://www.11ty.dev/docs/plugins/edge/">Learn more on 11ty.dev: Eleventy Edge Plugin documentation</a></p>
+
+### Source Code
 
 #### Loader code in _includes/layout.liquid
 
@@ -65,6 +65,4 @@ Check the network tab on your browser’s devtools (make sure the Disable cache 
 
 Sets the cookie to track repeat views and the ?repeat-reset query param to delete the cookie.
 
-{% highlight js %}
-// ./netlify/edge-functions/repeat.js
-{% endhighlight %}
+* [./netlify/edge-functions/repeat.js](https://github.com/11ty/demo-eleventy-edge/blob/main/netlify/edge-functions/repeat.js)
