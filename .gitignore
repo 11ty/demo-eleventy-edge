@@ -1,0 +1,7 @@
+node_modules
+package-lock.json
+_site
+.netlify
+netlify/edge-functions/_generated/
+netlify/functions/possum/**
+!netlify/functions/possum/index.js

@@ -1,0 +1,41 @@
+---
+subtitle: Forms
+---
+<ul>
+  <li>Zero client-side JavaScript required. Disable JavaScript and try it out!</li>
+  <li>Uses the <a href="https://en.wikipedia.org/wiki/Post/Redirect/Get">Post Redirect Get method</a> to eliminate pesky duplicate POST-submission alerts.</li>
+  <li>For demo purposes, we save your name to a cookie without JavaScript (Secure/HttpOnly). You’ll probably want to use a database instead.</li>
+</ul>
+
+{% edge %}{% if eleventy.edge.cookies.username.size > 0 %}<h2>Welcome {{ eleventy.edge.cookies.username | url_decode }}! 👋🏻 🌊</h2>{% endif %}{% endedge %}
+<form action="{{ page.url }}" method="post">
+  <label>Your Name <input type="text" name="username" value="{% edge %}{{ eleventy.edge.cookies.username | url_decode }}{% endedge %}"></label>
+  <button type="submit">Save</button>
+</form>
+
+<hr>
+
+<h3>Source Code</h3>
+
+<p><a href="https://www.11ty.dev/docs/plugins/edge/">Learn more on 11ty.dev: Eleventy Edge Plugin documentation</a></p>
+
+<h4>Username Display</h4>
+
+{% highlight html %}
+{% edge %}{% if eleventy.edge.cookies.username.size > 0 %}<h2>Welcome {{ eleventy.edge.cookies.username | url_decode }}! 👋🏻 🌊</h2>{% endif %}{% endedge %}
+{% endhighlight %}
+
+<h4>Hybrid Edge Form</h4>
+
+{% highlight html %}
+<form action="{{ page.url }}" method="post">
+  <label>Your Name <input type="text" name="username" value="{% edge %}{{ eleventy.edge.cookies.username | url_decode }}{% endedge %}"></label>
+  <button type="submit">Save</button>
+</form>
+{% endhighlight %}
+
+<h4>Edge Function</h4>
+
+{% highlight js %}
+// ./netlify/edge-functions/forms.js
+{% endhighlight %}

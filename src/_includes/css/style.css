@@ -1,0 +1,131 @@
+html {
+  padding: 0.5em;
+  margin: 0 0 10vh 0;
+  color: #383838;
+}
+body {
+	font-family: system-ui, -apple-system, sans-serif;
+	margin: 0 auto;
+  width: 100%;
+  max-width: 50em;
+  overflow-y: scroll;
+}
+
+main {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+
+  padding: 2em 0;
+  margin: 2em 0;
+}
+
+img {
+	max-width: 100%;
+}
+img[height] {
+  height: auto;
+}
+
+:link,
+:visited {
+  color: inherit;
+}
+
+pre,
+code {
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", monospace;
+}
+pre {
+  border-radius: .25em;
+  padding: .5em;
+  margin: 1em 0;
+  font-size: 1em;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-all;
+  tab-size: 2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: BenchNine, system-ui, -apple-system, sans-serif;
+}
+:is(h1, h2, h3, h4, h5) code {
+  font-family: inherit;
+}
+h1 {
+  font-size: 3em;
+}
+h2 {
+  font-size: 2em; /* 32px /16 */
+}
+h3 {
+  font-size: 1.625em; /* 26px /16 */
+}
+h4 {
+  font-size: 1.375em; /* 22px /16 */
+}
+
+form {
+  display: flex;
+  gap: 1em;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin-top: 10vh;
+}
+
+
+/* Demo list on main page */
+.demo-list ul {
+  font-family: BenchNine, system-ui, -apple-system, sans-serif;
+  font-size: 2em;
+}
+.demo-list li {
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+/* Template language syntax tests list */
+#tests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+#tests p {
+  margin: 0;
+}
+#tests > * {
+  display: flex;
+  gap: .5em;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: .5em;
+}
+
+
+/* Header test image */
+@media (min-width: 37.5em) { /* 600px */
+  .hed {
+    display: flex;
+    gap: 1em;
+  }
+
+  .img-hed {
+    width: 8em;
+    float: right;
+  }
+}
+
+.hed-link-return {
+  margin-top: 1em;
+  display: block;
+}
+.hed-link-return ~ .hed-link-return {
+  margin-top: .25em;
+}

@@ -1,0 +1,44 @@
+[dev]
+framework = "#static"
+command = "npx @11ty/eleventy --input=src --quiet --watch"
+
+[build]
+command = "npx @11ty/eleventy --input=src"
+publish = "_site"
+
+[[edge_functions]]
+function = "forms"
+path = "/forms/"
+
+[[edge_functions]]
+function = "repeat"
+path = "/*"
+
+[[edge_functions]]
+function = "dark-mode"
+path = "/appearance/"
+
+[[edge_functions]]
+function = "eleventy-edge"
+path = "/*"
+
+[[redirects]]
+from = "/tests/serverless/njk/"
+to = "/.netlify/functions/possum"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "possum"
+
+[[redirects]]
+from = "/tests/serverless/liquid/"
+to = "/.netlify/functions/possum"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "possum"
+
+[[redirects]]
+from = "/tests/serverless/javascript/"
+to = "/.netlify/functions/possum"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "possum"

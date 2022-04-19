@@ -1,0 +1,33 @@
+{
+  "name": "demo-eleventy-edge",
+  "version": "1.0.0",
+  "description": "Demos for the Eleventy Edge plugin",
+  "scripts": {
+    "build": "netlify build",
+    "start": "netlify dev"
+  },
+  "author": {
+    "name": "Zach Leatherman",
+    "email": "zachleatherman@gmail.com",
+    "url": "https://zachleat.com/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/11ty/demo-eleventy-edge.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/11ty/demo-eleventy-edge/issues"
+  },
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/11ty"
+  },
+  "homepage": "https://github.com/11ty/demo-eleventy-edge#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.0-canary.6",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
+    "netlify-cli": "^10.0.0"
+  }
+}

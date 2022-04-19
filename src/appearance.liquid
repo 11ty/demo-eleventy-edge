@@ -1,0 +1,66 @@
+---
+subtitle: Dark Mode Toggle
+js:
+  - "/static/form-autosubmit.js"
+---
+<ul>
+  <li>Zero client-side JavaScript required. Disable JavaScript and try it out!</li>
+  <li>Supports overriding the system default without JavaScript.</li>
+  <li>Saves preference to a cookie without JavaScript (Secure/HttpOnly). Only you can reduce cookie fingerprinting 😅</li>
+  <li>Preference is applied site-wide, try navigating around to a different page!</li>
+  <li>Progressive Enhancement baseline, enhances with JS to autosubmit on element change.</li>
+</ul>
+
+<form-autosubmit>
+  <form action="{{ page.url }}" method="post">
+    <fieldset>
+      <legend>Appearance</legend>
+      {% edge %}
+      {% assign appearance = eleventy.edge.cookies.appearance | default: "auto" | escape %}
+      <label><input type="radio" name="appearance" value=""{% if appearance == "auto" %} checked{% endif %}>Auto (System Default)</label>
+      <label><input type="radio" name="appearance" value="dark"{% if appearance == "dark" %} checked{% endif %}>Dark</label>
+      <label><input type="radio" name="appearance" value="light"{% if appearance == "light" %} checked{% endif %}>Light</label>
+      {% endedge %}
+    </fieldset>
+    <button type="submit">Save</button>
+  </form>
+</form-autosubmit>
+
+<hr>
+
+<h3>Source Code</h3>
+
+<p><a href="https://www.11ty.dev/docs/plugins/edge/">Learn more on 11ty.dev: Eleventy Edge Plugin documentation</a></p>
+
+<h4>Edge rendered Class in Layout file layout.liquid</h4>
+
+{% highlight html %}
+<html lang="en"{% edge "liquid" %} class="theme-{{ eleventy.edge.cookies.appearance | default: "auto" | escape }}"{% endedge %}>
+{% endhighlight %}
+
+<h4>Edge rendered Form</h4>
+
+<p>With <code>form-autosubmit</code> web component to auto-submit the Form on radio change event.</p>
+
+{% highlight html %}
+<form-autosubmit>
+  <form action="{{ page.url }}">
+    <fieldset>
+      <legend>Appearance</legend>
+      {% edge %}
+      {% assign appearance = eleventy.edge.cookies.appearance | default: "auto" | escape %}
+      <label><input type="radio" name="appearance" value=""{% if appearance == "auto" %} checked{% endif %}>Auto (System Default)</label>
+      <label><input type="radio" name="appearance" value="dark"{% if appearance == "dark" %} checked{% endif %}>Dark</label>
+      <label><input type="radio" name="appearance" value="light"{% if appearance == "light" %} checked{% endif %}>Light</label>
+      {% endedge %}
+    </fieldset>
+    <button type="submit">Save</button>
+  </form>
+</form-autosubmit>
+{% endhighlight %}
+
+<h4>Edge Function</h4>
+
+{% highlight js %}
+// ./netlify/edge-functions/dark-mode.js
+{% endhighlight %}

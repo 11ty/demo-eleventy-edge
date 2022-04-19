@@ -1,0 +1,27 @@
+---
+subtitle: Nunjucks
+# We need to override the default Markdown preprocessor for this test (Liquid)
+templateEngineOverride: njk,md
+argData:
+  pass: With Data
+---
+<h2>Edge Template Syntax Tests</h2>
+
+<div id="tests">
+  <div>No syntax passed in: {% edge %}✅ `No Data`{% endedge %}</div>
+  <div>No syntax passed in: {% edge argData %}✅ `{{pass}}`{% endedge %}</div>
+
+  <div>Markdown: {% edge "md" %}✅ `No Data`{% endedge %}</div>
+  <div>Markdown (no data render): {% edge "md", argData %}✅ `{{pass}}`{% endedge %}</div>
+  <div>Liquid: {% edge "liquid" %}✅ <code>No Data</code>{% endedge %}</div>
+  <div>Liquid: {% edge "liquid", argData %}✅ <code>{{pass}}</code>{% endedge %}</div>
+  <div>Liquid, Markdown: {% edge "liquid,md" %}✅ `No Data`{% endedge %}</div>
+  <div>Liquid, Markdown: {% edge "liquid,md", argData %}✅ `{{pass}}`{% endedge %}</div>
+
+  <div>Nunjucks: {% edge "njk" %}✅ <code>No Data</code>{% endedge %}</div>
+  <div>Nunjucks: {% edge "njk", argData %}✅ <code>{{pass}}</code>{% endedge %}</div>
+  <div>Nunjucks, Markdown: {% edge "njk,md" %}✅ `No Data`{% endedge %}</div>
+  <div>Nunjucks, Markdown: {% edge "njk,md", argData %}✅ `{{ pass }}`{% endedge %}</div>
+</div>
+
+<p>Make sure <code>raw</code> works correctly. {% raw %}You should see some curlies here: {{ test }}{% endraw %}</p>

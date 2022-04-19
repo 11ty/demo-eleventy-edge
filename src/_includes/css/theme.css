@@ -1,0 +1,15 @@
+.theme-dark {
+  background-color: #383838;
+  color: #fff;
+}
+.theme-auto,
+.theme-light {
+  background-color: #fff;
+  color: #383838;
+}
+@media (prefers-color-scheme: dark) {
+  .theme-auto {
+    background-color: #383838;
+    color: #fff;
+  }
+}

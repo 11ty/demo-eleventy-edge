@@ -1,0 +1,87 @@
+---
+title: Eleventy Edge
+---
+<!doctype html>
+<html lang="en"{% edge "liquid" %} class="theme-{{ eleventy.edge.cookies.appearance | default: "auto" | escape }}"{% endedge %}>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<title>{{ title }}{% if subtitle %}: {{ subtitle }}{% endif %}</title>
+
+		<!-- Web Font -->
+		{% edge "liquid" %}
+		{%- if eleventy.edge.saveData == false %}
+		<link rel="preload" href="/static/BenchNine-Bold-subset.woff2" as="font" type="font/woff2" crossorigin>
+		<style>
+		@font-face {
+			font-family: BenchNine;
+			src: url("/static/BenchNine-Bold-subset.woff2") format("woff2");
+			font-weight: 700;
+			font-display: swap;
+			unicode-range: U+21,U+28,U+29,U+2D-3A,U+3F,U+41-5A,U+5F,U+61-7A; /* https://uniclode.zachleat.dev/_21x28x29x2D-3Ax3Fx41-5Ax5Fx61-7A/ */
+		}
+		</style>
+		{% endif %}
+		{% endedge %}
+
+		<!-- Critical CSS -->
+		{%- capture criticalCss %}
+			{% include "css/style.css" %}
+			{% include "css/theme.css" %}
+			{% include "css/form-autosubmit.css" %}
+		{% endcapture %}
+
+		{% edge "liquid" criticalCss %}
+			{% if eleventy.edge.cookies.repeat %}
+			<link rel="stylesheet" href="/static/style.css">
+			{% else %}
+			<style>{{ _ }}</style>
+			<link rel="stylesheet" href="/static/style.css" media="print" onload="this.media='all'">
+			{% endif %}
+		{% endedge %}
+
+		{%- for src in js %}
+		<script type="module" src="{{ js }}" async defer></script>
+		{%- endfor %}
+	</head>
+	<body>
+		<header class="hed">
+			<a href="/"><img src="/static/logo-400x400.png" alt="11ty Logo" width="400" height="400" class="img-hed"></a>
+			<h1><a href="/">{{ title }}</a>{% if subtitle %}: {{ subtitle }}{% endif %}</h1>
+		</header>
+
+{% if page.url != "/" %}
+		<p>
+			<a href="/" class="hed-link-return"><strong>← Return to the Full list of Eleventy Edge Demos</strong></a>
+		</p>
+{% endif %}
+
+		<main{% if classes.main %} class="{{ classes.main }}"{% endif %}>
+		{{ content }}
+		</main>
+
+		<footer>
+			<h2>Edge-compatible Template Languages</h2>
+			<ul>
+				<li><a href="/tests/liquid/">Liquid</a></li>
+				<li><a href="/tests/liquid-md/">Liquid, Markdown</a></li>
+				<li><a href="/tests/serverless/liquid/">Liquid (Serverless)</a></li>
+				<li><a href="/tests/nunjucks/">Nunjucks</a></li>
+				<li><a href="/tests/nunjucks-md/">Nunjucks, Markdown</a></li>
+				<li><a href="/tests/serverless/njk/">Nunjucks (Serverless)</a></li>
+				<li><a href="/tests/javascript/">11ty.js JavaScript</a></li>
+				<li><a href="/tests/javascript-md/">11ty.js JavaScript, Markdown</a></li>
+				<li><a href="/tests/serverless/javascript/">11ty.js JavaScript (Serverless)</a></li>
+			</ul>
+
+			<h2>Global Data</h2>
+
+			<details><summary>Build-time <code>page</code></summary><pre><code>{{ page | json }}</code></pre></details>
+			<details><summary>Build-time <code>eleventy</code></summary><pre><code>{{ eleventy | json }}</code></pre></details>
+			{% edge "liquid" %}
+			<details open><summary>Edge <code>eleventy</code></summary><pre><code>{{ eleventy | json }}</code></pre></details>
+			{% endedge %}
+		</footer>
+	</body>
+</html>
