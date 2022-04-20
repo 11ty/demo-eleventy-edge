@@ -1,9 +1,9 @@
 [dev]
 framework = "#static"
-command = "npx @11ty/eleventy --input=src --quiet --watch"
+command = "npx @11ty/eleventy --watch"
 
 [build]
-command = "npx @11ty/eleventy --input=src"
+command = "npx @11ty/eleventy --quiet=false"
 publish = "_site"
 
 [[edge_functions]]

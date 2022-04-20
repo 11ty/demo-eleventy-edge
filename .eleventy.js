@@ -22,4 +22,12 @@ module.exports = function(eleventyConfig) {
       "11ty"
     ]
   });
+
+  eleventyConfig.setQuietMode(true);
+
+  return {
+    dir: {
+      input: "src"
+    }
+  }
 };
