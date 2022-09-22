@@ -1,4 +1,4 @@
-import { EleventyEdge } from "eleventy:edge";
+import { EleventyEdge } from "https://cdn.11ty.dev/edge@2.0.1/eleventy-edge.js";
 import precompiled from "./_generated/eleventy-edge-app-data.js";
 
 export default async (request, context) => {
