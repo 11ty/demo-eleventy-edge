@@ -26,9 +26,8 @@
   },
   "homepage": "https://github.com/11ty/demo-eleventy-edge#readme",
   "dependencies": {
-    "@11ty/eleventy": "2.0.0-canary.15",
+    "@11ty/eleventy": "2.0.0-canary.16",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
-    "liquidjs": "9.41.0",
     "netlify-cli": "^11.8.2"
   }
 }

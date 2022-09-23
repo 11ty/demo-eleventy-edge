@@ -1,12 +1,11 @@
-import { EleventyEdge } from "https://cdn.11ty.dev/edge@2.0.1/eleventy-edge.js";
-import precompiled from "./_generated/eleventy-edge-app-data.js";
+import { EleventyEdge, precompiledAppData } from "./_generated/eleventy-edge-app.js";
 
 export default async (request, context) => {
   try {
     let edge = new EleventyEdge("edge", {
       request,
       context,
-      precompiled,
+      precompiled: precompiledAppData,
 
       // default is [], add more keys to opt-in e.g. ["appearance", "username"]
       cookies: ["appearance", "username", "repeat"],
