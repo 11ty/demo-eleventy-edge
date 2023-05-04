@@ -1,6 +1,7 @@
 const { EleventyServerlessBundlerPlugin, EleventyEdgePlugin } = require("@11ty/eleventy");
 const EleventySyntaxHighlighterPlugin = require("@11ty/eleventy-plugin-syntaxhighlight");
 
+/** @param {import('@11ty/eleventy').UserConfig} eleventyConfig */
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("static");
 
